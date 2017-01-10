@@ -1,0 +1,15 @@
+p {
+  text-indent: 32px;
+}
+
+h2 + p {
+  text-indent: 0;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.note:before {
+  content: 'NOTE: ';
+}
