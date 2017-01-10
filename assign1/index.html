@@ -5,14 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assignment 1</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/screen.css">
   </head>
   <body>
     <header>
       <h1>Assignment 1</h1>
+      <nav>
+        <ul class="navigation">
+          <li class="navigation__item">
+            <a href="#product_inventory">Assignment "HTML &amp; CSS"</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#lab1">Lab 1</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#lab2">Lab 2</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
-      <article>
+      <section id="product_inventory" class="product-inventory">
+        <h2>Assignment "HTML &amp; CSS"</h2>
+        <form action="http://wt.ops.few.vu.nl/api/9ca8e4fc" method="post">
+          <table class="product-inventory__list">
+            <caption>Product inventory</caption>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Location</th>
+                <th>Purchase date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Banana</td>
+                <td>fruit</td>
+                <td>1</td>
+                <td>Amsterdam</td>
+                <td>2015-11-21</td>
+              </tr>
+              <tr>
+                <td>Banana</td>
+                <td>fruit</td>
+                <td>2</td>
+                <td>Amsterdam</td>
+                <td>2015-11-21</td>
+              </tr>
+              <tr>
+                <td>Banana</td>
+                <td>fruit</td>
+                <td>3</td>
+                <td>Amsterdam</td>
+                <td>2015-11-21</td>
+              </tr>
+              <tr class="product-inventory__new-product-entry">
+                <td>
+                  <input type="text" name="name" placeholder="Name" required>
+                </td>
+                <td>
+                  <input type="text" name="category" placeholder="Category" required>
+                </td>
+                <td>
+                  <input type="number" name="amount" placeholder="Amount" required>
+                </td>
+                <td>
+                  <input type="text" name="location" placeholder="Location" required>
+                </td>
+                <td>
+                  <input type="date" name="date" placeholder="Purchase date" required>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="product-inventory__add-item" type="submit" name="button">Add item</button>
+        </form>
+      </section>
+      <article id="lab1" class="lab-questions">
         <h2>Lab 1</h2>
         <ol>
           <li>
@@ -24,12 +95,13 @@
           <li>The HTML created by Word has aload of unnecessary code.</li>
           <li>
             <table id="protocolTable">
+              <caption>Protocol table</caption>
               <thead>
                 <tr>
-                  <td>Protocol name</td>
-                  <td>Port number</td>
-                  <td>Description</td>
-                  <td>Authoritative source</td>
+                  <th>Protocol name</th>
+                  <th>Port number</th>
+                  <th>Description</th>
+                  <th>Authoritative source</th>
                 </tr>
               </thead>
               <tbody>
@@ -73,16 +145,16 @@
           <li>We expect the em tag to override the italic font style, which results in no visible change, only adding semantic value.</li>
           <li>The main differnce between Google Chrome and Microsoft Internet Explorer is that Google Chrome has addons. Another key difference between them is the integration of Internet Explorer with Microsoft Windows which means that if Internet Explorer is compromised, the whole operating system can be damaged.</li>
         </ol>
-        <section>
+        <section class="bonus-question">
           <h3>Bonus question</h3>
           <article>
-            <h2>Spicy jalapeno bacon</h2>
+            <h4>Spicy jalapeno bacon</h4>
             <p>Spicy jalapeno bacon ipsum dolor amet leberkas pork belly alcatra swine t-bone tri-tip picanha meatball jowl ribeye kevin landjaeger rump pork chop. Pork shoulder rump, tri-tip pancetta turducken fatback cow cupim prosciutto filet mignon drumstick brisket alcatra. Beef ribs chicken flank bresaola burgdoggen rump pork chop chuck ribeye pig. Picanha frankfurter porchetta venison chicken. Spare ribs pork loin capicola shank. Beef bresaola t-bone, sirloin kielbasa burgdoggen venison capicola cow bacon turducken prosciutto fatback pig shankle.</p>
             <p>Alcatra turducken turkey, biltong leberkas sirloin pastrami sausage shankle prosciutto kielbasa boudin pork belly t-bone. Short loin doner sirloin, spare ribs tail turkey venison porchetta. Bresaola tail turducken flank tri-tip biltong pancetta. Short ribs prosciutto pork chop pastrami. Hamburger tongue beef ribs rump pork belly tenderloin chuck spare ribs. Doner filet mignon meatball ground round kevin, brisket spare ribs chuck chicken pig boudin pastrami drumstick. Turducken spare ribs fatback prosciutto.</p>
             <p>Meatball sausage capicola salami. Brisket drumstick fatback burgdoggen bresaola corned beef pancetta turducken leberkas flank pastrami sirloin shankle. Alcatra corned beef jerky, cupim tenderloin prosciutto tail pork chop sausage ball tip porchetta cow ground round jowl pastrami. Doner kielbasa fatback shank frankfurter, spare ribs ribeye meatloaf cow tail short loin drumstick. Pork spare ribs landjaeger short loin hamburger shoulder rump pork chop fatback shankle pork loin.</p>
           </article>
           <article>
-            <h2>Small-caps and note classes</h2>
+            <h4>Small-caps and note classes</h4>
             <p class="small-caps">Bresaola beef ribs meatloaf cupim. Swine ribeye drumstick alcatra, turkey landjaeger turducken. Prosciutto tri-tip spare ribs meatloaf turducken. Tongue doner shank, cow corned beef pancetta tri-tip. Chuck beef salami short ribs, pastrami t-bone corned beef pork chop shank capicola. Shank andouille ball tip tenderloin, flank pork chop doner bresaola sirloin pancetta ribeye prosciutto pastrami. Turducken hamburger short loin meatloaf, ribeye prosciutto sirloin kevin shank brisket t-bone picanha pork beef ribs porchetta.</p>
             <p class="note">Ham hock tri-tip kevin pork belly hamburger meatball pork turkey bacon andouille tenderloin. Biltong chicken salami sausage pig, tri-tip bacon. Turkey brisket leberkas, shoulder hamburger capicola pork belly swine beef. Boudin brisket biltong, ground round t-bone burgdoggen frankfurter tri-tip chicken rump hamburger sirloin. Pork ribeye pork loin strip steak.</p>
           </article>

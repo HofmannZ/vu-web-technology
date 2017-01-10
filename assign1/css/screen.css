@@ -1,0 +1,21 @@
+.bonus-question p {
+  text-indent: 32px;
+}
+
+/* Reset the indent if the paragaph is right afther a header */
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  text-indent: 0;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.note:before {
+  content: 'NOTE: ';
+}
