@@ -1,3 +1,10 @@
+1.Guideline 1.1 Text Alternatives
+2.Name of the website we have checked:"http://translate.google.com":
+  a."The language of the document is not identified." This should be either specified as English or it should not because
+  the website is international.
+  b."Missing form label." The text label for the main text area is missing. This means that the screen reader application will have a problem to quide
+    the disabled user to the main core function of the website: The ability to write text and get it translated.
+3.
 4. Native application vs (responsive) Web application.
   a.Native application:
     -Advantage: have little overhead because the code is native, so the code runs buttery smooth.
@@ -6,4 +13,6 @@
     -Advantage: It takes less time to deploy an application because the code is written in JavaScript and JavaScript can run everywhere. As React-Native becomes more popular and powerful,
     it will be easier to write native applications using JavaScript.
     -Disadvantage: You need to write modules to have access to the phone's hardware. Those modules are built using native language. Until there are libraries for every phone feature,
-    writing a web application for mobile will always have bottlenecks. 
+    writing a web application for mobile will always have bottlenecks.
+5. key multilingual issues that W3C is addressing within the "Internationalization" activity
+  The goals of the Internationalization activities are all related to the main goal of accessibility of the Web for everyone, which means also in other languages, scripts and cultures.
