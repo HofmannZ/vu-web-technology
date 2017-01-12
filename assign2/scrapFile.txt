@@ -1,0 +1,9 @@
+4. Native application vs (responsive) Web application.
+  a.Native application:
+    -Advantage: have little overhead because the code is native, so the code runs buttery smooth.
+    -Disadvantage: You have to know N programming languages if you develop your application on N phone platforms: Android, iOS, Windows Phone, etc.
+  b.Web application:
+    -Advantage: It takes less time to deploy an application because the code is written in JavaScript and JavaScript can run everywhere. As React-Native becomes more popular and powerful,
+    it will be easier to write native applications using JavaScript.
+    -Disadvantage: You need to write modules to have access to the phone's hardware. Those modules are built using native language. Until there are libraries for every phone feature,
+    writing a web application for mobile will always have bottlenecks. 
