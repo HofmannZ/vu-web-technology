@@ -26,8 +26,8 @@
       </nav>
     </header>
     <main>
-      <section id="product_inventory" class="product-inventory">
-        <h2>Assignment "HTML &amp; CSS"</h2>
+      <section id="product_inventory" class="card product-inventory">
+        <h2 class="card__title">Assignment "HTML &amp; CSS"</h2>
         <form action="http://wt.ops.few.vu.nl/api/9ca8e4fc" method="post">
           <table class="product-inventory__list">
             <caption>Product inventory</caption>
@@ -84,69 +84,161 @@
           <button class="product-inventory__add-item" type="submit" name="button">Add item</button>
         </form>
       </section>
-      <article id="lab1" class="lab-questions">
-        <h2>Lab 1</h2>
-        <ol>
-          <li>
-            <p>The W3C will continue to work on the HTML5 specification. WHATWG on the other hand will continue its work with HTML5 as a "Living Standard". The idea of a living standard is that it never settles down and is always being added to and refined.</p>
-            <p>WHATWG sees the Web as an evolving, living platform; the W3C exists to formally recommend certain things. In practice, this means that it has been taking WHATWG its documents and changing them in ways that the WHATWG people do not always like.</p>
+      <article id="lab1" class="card">
+        <h2 class="card__title">Lab 1</h2>
+        <ol class="lab-questions">
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Make sure you have read Paul Ford's article "On HTML5 and the Group That Rules the Web" (see Reader on BlackBoard). What is, according to this article, the key difference between the HTML5 Recommendation published by W3C and the one published by the WHATWG?</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>The W3C will continue to work on the HTML5 specification. WHATWG on the other hand will continue its work with HTML5 as a "Living Standard". The idea of a living standard is that it never settles down and is always being added to and refined.</p>
+              <p>WHATWG sees the Web as an evolving, living platform; the W3C exists to formally recommend certain things. In practice, this means that it has been taking WHATWG its documents and changing them in ways that the WHATWG people do not always like.</p>
+            </section>
           </li>
-          <li>The Internet is a networking infrastructure, basically a network of networks. The World Wide Web is one of the methods of getting data throughout the Internet. Therefore, the The World Wide Web is a layer build on top of the Internet.</li>
-          <li>Tim Berners Lee has created HTML, URI, and HTTP to build the World-Wide Web on top of the already existing Internet infrastructure.</li>
-          <li>The HTML created by Word has aload of unnecessary code.</li>
-          <li>
-            <table id="protocolTable">
-              <caption>Protocol table</caption>
-              <thead>
-                <tr>
-                  <th>Protocol name</th>
-                  <th>Port number</th>
-                  <th>Description</th>
-                  <th>Authoritative source</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>HTTP</td>
-                  <td>80</td>
-                  <td>The protocol for the communication between webclient(browser) and a webserver.</td>
-                  <td><a href="http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html">Red Hat Enterprise Linux 4: Security Guide</a></td>
-                </tr>
-                <tr>
-                  <td>SSH</td>
-                  <td>22</td>
-                  <td>A protocol which enables logging on another computer from distance, because the protocol works in an encrypted way, it‘s safe.</td>
-                  <td><a href="http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html">Red Hat Enterprise Linux 4: Security Guide</a></td>
-                </tr>
-                <tr>
-                  <td>FTP</td>
-                  <td>20</td>
-                  <td>A protocol which standardizes proceedings in order to make file exchange easier. It‘s not encrypted so easily hackable.</td>
-                  <td><a href="http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html">Red Hat Enterprise Linux 4: Security Guide</a></td>
-                </tr>
-              </tbody>
-            </table>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Explain the difference between "the Internet" and "the World-Wide Web". Provide links to the online resources you used (if any) to answer this question.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>The Internet is a networking infrastructure, basically a network of networks. The World Wide Web is one of the methods of getting data throughout the Internet. Therefore, the The World Wide Web is a layer build on top of the Internet.</p>
+            </section>
           </li>
-          <li>The first paragraph is preferred becouse the strong tag gives samantic meaning to the text. It reprecents the string impotance of it's contents. An other example would be the em and the i tags. The em tag reporesents stress emphasis of its contents, though the i tag does not.</li>
-          <li>Both tags do not give samantic value to it's content. THey defer in thier default display porerty where, span in an inline element and div is a block element.</li>
-          <li>The iframe encatulates the page inside and avoids javascript injections. You cannot communicate between the code inside the ifame and the code outside of it.</li>
-          <li>
-            <span>8 benefits of using CSS:</span>
-            <ul>
-              <li>Web pages are easier to load and uses less bandwidth</li>
-              <li>A CSS style sheet compliments well with HTML</li>
-              <li>CSS allows you to position your element anywhere in the webpage</li>
-              <li>CSS is compatible with all web browsers</li>
-              <li>CSS can be used to create print friendly web pages</li>
-              <li>CSS style sheets allows the user to customize the webpage</li>
-              <li>CSS style sheets makes it easier for your website to feature in search engines</li>
-              <li>CSS allows the web pages to have absolute consistency</li>
-            </ul>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>What are the three essential technologies that Tim Berners-Lee created to build the World-Wide Web on top of the already existing Internet infrastructure?</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>Tim Berners Lee has created HTML, URI, and HTTP to build the World-Wide Web on top of the already existing Internet infrastructure.</p>
+            </section>
           </li>
-          <li>We expect the em tag to override the italic font style, which results in no visible change, only adding semantic value.</li>
-          <li>The main differnce between Google Chrome and Microsoft Internet Explorer is that Google Chrome has addons. Another key difference between them is the integration of Internet Explorer with Microsoft Windows which means that if Internet Explorer is compromised, the whole operating system can be damaged.</li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Create a document with the text "Hello World!" in a word processor such as Microsoft Word or LibreOffice Writer. Save the file as a Web page or HTML document and inspect the HTML source using a plain text editor or a browser. Describe the key differences of the exported HTML against a regular HTML document created with a plain text editor. Hint: you could use the HTML &lt;pre&gt; tag with the proper escaping to show some example HTML source code generated by the word processor.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>The HTML created by Word has aload of unnecessary code.</p>
+            </section>
+          </li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Find out which port (according to the current IANA assignment) is used for the following protocols:</h3>
+              <ul>
+                <li>HTTP</li>
+                <li>SSH</li>
+                <li>FTP</li>
+              </ul>
+              <h3>Provide a one line description of all three protocols, indicate with a link which <strong>authoritative source</strong> you have used for each description, and why you think your source is authoritative for this topic.</h3>
+              <h3>Encode your answer in an HTML <code>table</code> with an <code>id</code> attribute set to <code>protocolTable</code>. The table should have three rows, one for each protocol. It should have at least four columns: for each protocol, list the protocol name, port number, description and the authoritative source. You will need this table in Assignment 2.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <table id="protocolTable">
+                <caption>Protocol table</caption>
+                <thead>
+                  <tr>
+                    <th>Protocol name</th>
+                    <th>Port number</th>
+                    <th>Description</th>
+                    <th>Authoritative source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>HTTP</td>
+                    <td>80</td>
+                    <td>The protocol for the communication between webclient(browser) and a webserver.</td>
+                    <td><a href="http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html">Red Hat Enterprise Linux 4: Security Guide</a></td>
+                  </tr>
+                  <tr>
+                    <td>SSH</td>
+                    <td>22</td>
+                    <td>A protocol which enables logging on another computer from distance, because the protocol works in an encrypted way, it‘s safe.</td>
+                    <td><a href="http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html">Red Hat Enterprise Linux 4: Security Guide</a></td>
+                  </tr>
+                  <tr>
+                    <td>FTP</td>
+                    <td>20</td>
+                    <td>A protocol which standardizes proceedings in order to make file exchange easier. It‘s not encrypted so easily hackable.</td>
+                    <td><a href="http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html">Red Hat Enterprise Linux 4: Security Guide</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Look at the following two HTML paragraphs:</h3>
+              <code>
+                <pre>
+                  &lt;p&gt;This is an &lt;strong&gt;important&lt;/strong&gt; point.&lt;/p&gt;
+                  &lt;p&gt;This is another &lt;b&gt;important&lt;/b&gt; point.&lt;/p&gt;
+                </pre>
+              </code>
+              <h3>Explain why the HTML of the first paragraph should be preferred. Illustrate this with an example. Also, identify another pair of HTML constructs for which the same rationale holds.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>The first paragraph is preferred becouse the strong tag gives samantic meaning to the text. It reprecents the string impotance of it's contents. An other example would be the em and the i tags. The em tag reporesents stress emphasis of its contents, though the i tag does not.</p>
+            </section>
+          </li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Identify one similarity and one difference between the HTML elements <code>span</code> and <code>div</code>.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>Both tags do not give samantic value to it's content. THey defer in thier default display porerty where, span in an inline element and div is a block element.</p>
+            </section>
+          </li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Describe the pros and cons of using the <code>iframe</code> tag in HTML.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>The iframe encatulates the page inside and avoids javascript injections. You cannot communicate between the code inside the ifame and the code outside of it.</p>
+            </section>
+          </li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>List potential benefits of using CSS.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <h4>8 benefits of using CSS:</h4>
+              <ul>
+                <li>Web pages are easier to load and uses less bandwidth</li>
+                <li>A CSS style sheet compliments well with HTML</li>
+                <li>CSS allows you to position your element anywhere in the webpage</li>
+                <li>CSS is compatible with all web browsers</li>
+                <li>CSS can be used to create print friendly web pages</li>
+                <li>CSS style sheets allows the user to customize the webpage</li>
+                <li>CSS style sheets makes it easier for your website to feature in search engines</li>
+                <li>CSS allows the web pages to have absolute consistency</li>
+              </ul>
+            </section>
+          </li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>How would you expect a Web browser to render an emphasized word (i.e., included in an <code>em</code> element) in a paragraph with an italic font style? Check whether your browser behaves according to your expectation.</h3>
+            </section>
+            <section class="lab-question__answer">
+              <p>We expect the em tag to override the italic font style, which results in no visible change, only adding semantic value.</p>
+            </section>
+          </li>
+          <li class="card lab-question">
+            <section class="lab-question__question">
+              <h3>Pick two web browsers from the list below. What are in your view the key differences between the two browsers?</h3>
+              <ul>
+                <li>Apple Safari</li>
+                <li>Google Chrome (or Chromium on Debian Linux)</li>
+                <li>Microsoft Internet Explorer</li>
+                <li>Mozilla Firefox (or Iceweasel on Debian Linux)</li>
+                <li>Opera Web Browser</li>
+              </ul>
+            </section>
+            <section class="lab-question__answer">
+              <p>The main differnce between Google Chrome and Microsoft Internet Explorer is that Google Chrome has addons. Another key difference between them is the integration of Internet Explorer with Microsoft Windows which means that if Internet Explorer is compromised, the whole operating system can be damaged.</p>
+            </section>
+          </li>
         </ol>
-        <section class="bonus-question">
+        <section class="card bonus-question">
           <h3>Bonus question</h3>
           <article>
             <h4>Spicy jalapeno bacon</h4>
