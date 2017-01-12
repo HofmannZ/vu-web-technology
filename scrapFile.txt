@@ -17,4 +17,5 @@
 6.We have found the following IP addresses:
   -'few.vu.nl': '130.37.164.154'. Found using the bash command: 'host few.vu.nl'
   -'cs.vu.nl': '130.37.164.154'. Found using the bash command: 'host cs.vu.nl'
-  Both have the same IP address. This means that each link 
+  Both have the same IP address. This could cause a load of trafic to this link and hence slow down the speed of the site.
+7.

@@ -1,12 +1,7 @@
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
   font-weight: 300;
-}
-
-input {
-  -webkit-appearance: none;
-  border: none;
-  outline: none;
 }
 
 .card {
@@ -20,7 +15,19 @@ input {
 }
 
 .card__title {
-  margin-left: 5%;
+  color: #1E88E5;
+  font-size: 24px;
+}
+
+input {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+}
+
+table {
+  width: 100%;
+  text-align: center;
 }
 
 .lab-questions {
@@ -29,10 +36,50 @@ input {
 }
 
 .lab-question {
+  border-bottom: #607D8B solid 1px;
+  margin: 0;
+  margin-top: 7.5%;
   list-style: none;
+  padding-bottom: 7.5%;
+}
+
+.lab-question:first-child {
+  margin-top: 0;
+}
+
+.lab-question__question {
+  color: #1565C0;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.lab-question__question h3 {
+  color: #1565C0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+h4 {
+  color: #0D47A1;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.lab-question__answer {
+
+}
+
+.lab-question__answer p:last-child {
+  margin-bottom: 0;
 }
 
 /* Bonus question lab 1 */
+.bonus-question__title {
+  color: #1565C0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
 .bonus-question p {
   text-indent: 32px;
 }
