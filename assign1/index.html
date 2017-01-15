@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assignment 1</title>
-    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/screen.css" media="screen">
+    <link rel="stylesheet" href="css/print.css" media="print">
   </head>
   <body>
-    <header>
-      <h1>Assignment 1</h1>
+    <header class="card">
+      <h1 class="page-title">Assignment 1</h1>
       <nav>
-        <h2>Table of content</h2>
+        <h2 class="card__title">Table of content</h2>
         <ul class="navigation">
           <li class="navigation__item">
             <a href="#product_inventory">Assignment "HTML &amp; CSS"</a>
@@ -88,48 +89,53 @@
         <h2 class="card__title">Lab 1</h2>
         <ol class="lab-questions">
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 1</h3>
             <section class="lab-question__question">
-              <h3>Make sure you have read Paul Ford's article "On HTML5 and the Group That Rules the Web" (see Reader on BlackBoard). What is, according to this article, the key difference between the HTML5 Recommendation published by W3C and the one published by the WHATWG?</h3>
+              <h4>Make sure you have read Paul Ford's article "On <abbr title="Hyper Text Markup LAnguage 5">HTML5</abbr> and the Group That Rules the Web" (see Reader on BlackBoard). What is, according to this article, the key difference between the <abbr title="Hyper Text Markup Language 5">HTML5</abbr> Recommendation published by <abbr title="World Wide Web Consortium">W3C</abbr> and the one published by the <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr>?</h4>
             </section>
             <section class="lab-question__answer">
-              <p>The W3C will continue to work on the HTML5 specification. WHATWG on the other hand will continue its work with HTML5 as a "Living Standard". The idea of a living standard is that it never settles down and is always being added to and refined.</p>
-              <p>WHATWG sees the Web as an evolving, living platform; the W3C exists to formally recommend certain things. In practice, this means that it has been taking WHATWG its documents and changing them in ways that the WHATWG people do not always like.</p>
+              <p>The <abbr title="World Wide Web Consortium">W3C</abbr> will continue to work on the <abbr title="Hyper Text Markup LAnguage 5">HTML5</abbr> specification. WHATWG on the other hand will continue its work with <abbr title="Hyper Text Markup Language 5">HTML5</abbr> as a "Living Standard". The idea of a living standard is that it never settles down and is always being added to and refined.</p>
+              <p><abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr> sees the Web as an evolving, living platform; the <abbr title="World Wide Web Consortium">W3C</abbr> exists to formally recommend certain things. In practice, this means that it has been taking <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr> its documents and changing them in ways that the <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr> people do not always like.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 2</h3>
             <section class="lab-question__question">
-              <h3>Explain the difference between "the Internet" and "the World-Wide Web". Provide links to the online resources you used (if any) to answer this question.</h3>
+              <h4>Explain the difference between "the Internet" and "the World-Wide Web". Provide links to the online resources you used (if any) to answer this question.</h4>
             </section>
             <section class="lab-question__answer">
               <p>The Internet is a networking infrastructure, basically a network of networks. The World Wide Web is one of the methods of getting data throughout the Internet. Therefore, the The World Wide Web is a layer build on top of the Internet.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 3</h3>
             <section class="lab-question__question">
-              <h3>What are the three essential technologies that Tim Berners-Lee created to build the World-Wide Web on top of the already existing Internet infrastructure?</h3>
+              <h4>What are the three essential technologies that Tim Berners-Lee created to build the World-Wide Web on top of the already existing Internet infrastructure?</h4>
             </section>
             <section class="lab-question__answer">
               <p>Tim Berners Lee has created HTML, URI, and HTTP to build the World-Wide Web on top of the already existing Internet infrastructure.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 4</h3>
             <section class="lab-question__question">
-              <h3>Create a document with the text "Hello World!" in a word processor such as Microsoft Word or LibreOffice Writer. Save the file as a Web page or HTML document and inspect the HTML source using a plain text editor or a browser. Describe the key differences of the exported HTML against a regular HTML document created with a plain text editor. Hint: you could use the HTML &lt;pre&gt; tag with the proper escaping to show some example HTML source code generated by the word processor.</h3>
+              <h4>Create a document with the text "Hello World!" in a word processor such as Microsoft Word or LibreOffice Writer. Save the file as a Web page or HTML document and inspect the HTML source using a plain text editor or a browser. Describe the key differences of the exported HTML against a regular HTML document created with a plain text editor. Hint: you could use the HTML &lt;pre&gt; tag with the proper escaping to show some example HTML source code generated by the word processor.</h4>
             </section>
             <section class="lab-question__answer">
               <p>The HTML created by Word has aload of unnecessary code.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 5</h3>
             <section class="lab-question__question">
-              <h3>Find out which port (according to the current IANA assignment) is used for the following protocols:</h3>
+              <h4>Find out which port (according to the current IANA assignment) is used for the following protocols:</h4>
               <ul>
                 <li>HTTP</li>
                 <li>SSH</li>
                 <li>FTP</li>
               </ul>
-              <h3>Provide a one line description of all three protocols, indicate with a link which <strong>authoritative source</strong> you have used for each description, and why you think your source is authoritative for this topic.</h3>
-              <h3>Encode your answer in an HTML <code>table</code> with an <code>id</code> attribute set to <code>protocolTable</code>. The table should have three rows, one for each protocol. It should have at least four columns: for each protocol, list the protocol name, port number, description and the authoritative source. You will need this table in Assignment 2.</h3>
+              <h4>Provide a one line description of all three protocols, indicate with a link which <strong>authoritative source</strong> you have used for each description, and why you think your source is authoritative for this topic.</h4>
+              <h4>Encode your answer in an HTML <code>table</code> with an <code>id</code> attribute set to <code>protocolTable</code>. The table should have three rows, one for each protocol. It should have at least four columns: for each protocol, list the protocol name, port number, description and the authoritative source. You will need this table in Assignment 2.</h4>
             </section>
             <section class="lab-question__answer">
               <table id="protocolTable">
@@ -166,39 +172,43 @@
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 6</h3>
             <section class="lab-question__question">
-              <h3>Look at the following two HTML paragraphs:</h3>
+              <h4>Look at the following two HTML paragraphs:</h4>
               <code>
                 <pre>
-                  &lt;p&gt;This is an &lt;strong&gt;important&lt;/strong&gt; point.&lt;/p&gt;
-                  &lt;p&gt;This is another &lt;b&gt;important&lt;/b&gt; point.&lt;/p&gt;
+&lt;p&gt;This is an &lt;strong&gt;important&lt;/strong&gt; point.&lt;/p&gt;
+&lt;p&gt;This is another &lt;b&gt;important&lt;/b&gt; point.&lt;/p&gt;
                 </pre>
               </code>
-              <h3>Explain why the HTML of the first paragraph should be preferred. Illustrate this with an example. Also, identify another pair of HTML constructs for which the same rationale holds.</h3>
+              <h4>Explain why the HTML of the first paragraph should be preferred. Illustrate this with an example. Also, identify another pair of HTML constructs for which the same rationale holds.</h4>
             </section>
             <section class="lab-question__answer">
               <p>The first paragraph is preferred becouse the strong tag gives samantic meaning to the text. It reprecents the string impotance of it's contents. An other example would be the em and the i tags. The em tag reporesents stress emphasis of its contents, though the i tag does not.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 7</h3>
             <section class="lab-question__question">
-              <h3>Identify one similarity and one difference between the HTML elements <code>span</code> and <code>div</code>.</h3>
+              <h4>Identify one similarity and one difference between the HTML elements <code>span</code> and <code>div</code>.</h4>
             </section>
             <section class="lab-question__answer">
               <p>Both tags do not give samantic value to it's content. THey defer in thier default display porerty where, span in an inline element and div is a block element.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 8</h3>
             <section class="lab-question__question">
-              <h3>Describe the pros and cons of using the <code>iframe</code> tag in HTML.</h3>
+              <h4>Describe the pros and cons of using the <code>iframe</code> tag in HTML.</h4>
             </section>
             <section class="lab-question__answer">
               <p>The iframe encatulates the page inside and avoids javascript injections. You cannot communicate between the code inside the ifame and the code outside of it.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 9</h3>
             <section class="lab-question__question">
-              <h3>List potential benefits of using CSS.</h3>
+              <h4>List potential benefits of using CSS.</h4>
             </section>
             <section class="lab-question__answer">
               <h4>8 benefits of using CSS:</h4>
@@ -215,16 +225,18 @@
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 10</h3>
             <section class="lab-question__question">
-              <h3>How would you expect a Web browser to render an emphasized word (i.e., included in an <code>em</code> element) in a paragraph with an italic font style? Check whether your browser behaves according to your expectation.</h3>
+              <h4>How would you expect a Web browser to render an emphasized word (i.e., included in an <code>em</code> element) in a paragraph with an italic font style? Check whether your browser behaves according to your expectation.</h4>
             </section>
             <section class="lab-question__answer">
               <p>We expect the em tag to override the italic font style, which results in no visible change, only adding semantic value.</p>
             </section>
           </li>
           <li class="lab-question">
+            <h3 class="lab-question__number">Question 11</h3>
             <section class="lab-question__question">
-              <h3>Pick two web browsers from the list below. What are in your view the key differences between the two browsers?</h3>
+              <h4>Pick two web browsers from the list below. What are in your view the key differences between the two browsers?</h4>
               <ul>
                 <li>Apple Safari</li>
                 <li>Google Chrome (or Chromium on Debian Linux)</li>
@@ -239,7 +251,7 @@
           </li>
         </ol>
         <section class="bonus-question">
-          <h3 class="bonus-question__title">Bonus question</h3>
+          <h3 class="lab-question__number">Bonus question</h3>
           <article>
             <h4>Spicy jalapeno bacon</h4>
             <p>Spicy jalapeno bacon ipsum dolor amet leberkas pork belly alcatra swine t-bone tri-tip picanha meatball jowl ribeye kevin landjaeger rump pork chop. Pork shoulder rump, tri-tip pancetta turducken fatback cow cupim prosciutto filet mignon drumstick brisket alcatra. Beef ribs chicken flank bresaola burgdoggen rump pork chop chuck ribeye pig. Picanha frankfurter porchetta venison chicken. Spare ribs pork loin capicola shank. Beef bresaola t-bone, sirloin kielbasa burgdoggen venison capicola cow bacon turducken prosciutto fatback pig shankle.</p>
@@ -252,6 +264,100 @@
             <p class="note">Ham hock tri-tip kevin pork belly hamburger meatball pork turkey bacon andouille tenderloin. Biltong chicken salami sausage pig, tri-tip bacon. Turkey brisket leberkas, shoulder hamburger capicola pork belly swine beef. Boudin brisket biltong, ground round t-bone burgdoggen frankfurter tri-tip chicken rump hamburger sirloin. Pork ribeye pork loin strip steak.</p>
           </article>
         </section>
+      </article>
+      <article id="lab2" class="card">
+        <ol class="lab-questions">
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 1</h3>
+            <section class="lab-question__question">
+              <h4>Read the article by Axel Schmetzke, (2001),"Web accessibility at university libraries and library schools" (See Reader for Week 1 on BlackBoard). Schmetzke found that the most prevalent accessibility error is not having ALT texts for images. With which WCAG guideline does this correspond?</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 2</h3>
+            <section class="lab-question__question">
+              <h4>The Web Accessibility checker 'Bobby' that Schmetzke used has been taken offline, but its predecessor WAVE can be found online. Run the tool on a web site you think <strong>should</strong> be accessible. Briefly write down your key observations.</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 3</h3>
+            <section class="lab-question__question">
+              <h4>Acquaint yourself with principles of color contrast, e.g. through the Color Contrast Check. Test three color combinations and write a short report of the results and how these should be interpreted.</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 4</h3>
+            <section class="lab-question__question">
+              <h4>Make sure you understand the difference between a <em>Native app</em> versus a <em>(responsive) Web app</em>. Discuss at least one advantage of native apps over web apps and vice versa.</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 5</h3>
+            <section class="lab-question__question">
+              <h4>Summarize the key multilingual issues that W3C is addressing within the "Internationalization" activity. (Expected length: half page)</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p>The word 'internationalization' means that everyone in this world should be able to access the internet with no constrains. This also means that the developer has to create a page where there are no writing boundaries: text from left to right, from right to left or mixed. Other languages spoken by small countries might be taken into consideration, because they can add new writing rules which should be tackled and not ignored. It’s the developer responsibility to make sure that all the W3C standards are respected, to make sure that the final web page is easily adapted by every user from a different country, culture or language. This is where the Unicode character set from W3C comes in handy, because it allows to a seamless integration of human language into Web technologies.</p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 6</h3>
+            <section class="lab-question__question">
+              <h4>What is the IP address of the server running the website at <code>http://www.few.vu.nl</code>? And the IP address behind the site running <code>http://www.cs.vu.nl</code>? Explain how you found the answer. How could the results you find influence the web servers' functionality?</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 7</h3>
+            <section class="lab-question__question">
+              <h4>Look up information about the new protocol for IP addresses (IPv6, IP version 6). Describe the main features of this protocol and indicate what the reasons are to move from version 4 to version 6. (Expected length: 1/4 page)</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 8</h3>
+            <section class="lab-question__question">
+              <h4>What are MIME types? Name the most common subtypes of type <code>text</code>. Provide a link to the most authoritative source with the complete list.</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 9</h3>
+            <section class="lab-question__question">
+              <h4>Make sure you have read the blog post What Is A Web Server? as described in the Week 1 Reader on Blackboard. Knupp states that the GET method is the most common HTTP request method. Name at least one other HTTP request method and find out what the differences are between GET and the one you picked. Which authoritative source(s) have you used?</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+          <li class="lab-question">
+            <h3 class="lab-question__number">Question 10</h3>
+            <section class="lab-question__question">
+              <h4>Most of the well-known HTTP web servers serve HTML and other content to end users. But behind the scenes, there are many HTTP servers that provide services for other web sites. To manage who is allowed to do what on these services, they often deploy <strong>keys</strong>: short sequences of characters that are used to uniquely identify you. We will use an example of such a web site in the assignments, for which your need a key. So please go the page at http://wt.ops.few.vu.nl/keys and generate a key. Please record the value of the key generated as the answer to this question, so you can use it later in the assignments.</h4>
+            </section>
+            <section class="lab-question__answer">
+              <p></p>
+            </section>
+          </li>
+        </ol>
       </article>
     </main>
   </body>

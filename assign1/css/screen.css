@@ -2,32 +2,55 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 14px;
   font-weight: 300;
+  background: #fff url('http://www.planwallpaper.com/static/images/recycled_texture_background_by_sandeep_m-d6aeau9_PZ9chud.jpg') no-repeat fixed center;
+  background-size: 100vw auto;
 }
 
-.card {
-  background-color: white;
-  border-radius: 2px;
-  box-sizing: border-box;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  margin: 5% 5%;
-  padding: 24px 16px;
-  width: 90%;
+a {
+  text-decoration: none;
 }
 
-.card__title {
-  color: #1E88E5;
-  font-size: 24px;
+/*h4 {
+  color: #0D47A1;
+  font-size: 1rem;
+  font-weight: 300;
+}*/
+
+table {
+  width: 100%;
+  text-align: center;
 }
 
 input {
   -webkit-appearance: none;
   border: none;
   outline: none;
+  text-align: center;
 }
 
-table {
-  width: 100%;
-  text-align: center;
+code {
+  color: #FF9800;
+}
+
+.page-title {
+  font-size: 3em;
+  color: #FF9800;
+}
+
+.card {
+  background-color: #ECEFF1;
+  border-radius: 2px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  margin: 5% 5%;
+  padding: 5% 5%;
+  width: 90%;
+}
+
+.card__title {
+  color: #1E88E5;
+  font-size: 24px;
+  margin-bottom: 1.5em;
 }
 
 .lab-questions {
@@ -36,7 +59,7 @@ table {
 }
 
 .lab-question {
-  border-bottom: #607D8B solid 1px;
+  border-bottom: #CFD8DC solid 1px;
   margin: 0;
   margin-top: 7.5%;
   list-style: none;
@@ -47,38 +70,32 @@ table {
   margin-top: 0;
 }
 
+.lab-question__number {
+  color: #607D8B;
+  text-transform: capitalize;;
+}
+
 .lab-question__question {
   color: #1565C0;
   font-weight: 300;
   font-size: 16px;
+  font-style: italic;
 }
 
-.lab-question__question h3 {
+.lab-question__question h4 {
   color: #1565C0;
   font-size: 16px;
-  font-weight: 300;
-}
-
-h4 {
-  color: #0D47A1;
-  font-size: 14px;
   font-weight: 300;
 }
 
 .lab-question__answer {
-
-}
-
-.lab-question__answer p:last-child {
   margin-bottom: 0;
 }
 
+
+/* * * * * * * * * * * **/
 /* Bonus question lab 1 */
-.bonus-question__title {
-  color: #1565C0;
-  font-size: 16px;
-  font-weight: 300;
-}
+/** * * * * * * * * * * */
 
 .bonus-question p {
   text-indent: 32px;
@@ -93,7 +110,7 @@ h6 + p {
   text-indent: 0;
 }
 
-.small-caps {
+.small-caps:first-line {
   font-variant: small-caps;
 }
 
