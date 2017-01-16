@@ -1,0 +1,36 @@
+@media print {
+  body {
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  input {
+    display: none;
+  }
+
+  button {
+    display: none;
+  }
+
+  .card {
+    page-break-before: always;
+    orphans: 2;
+  }
+
+  .toc {
+    page-break-after: avoid;
+  }
+
+  .toc__title {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .lab-question {
+    list-style: none;
+  }
+}
