@@ -109,12 +109,17 @@ code {
   text-transform: uppercase;
   border-style: none;
   color: white;
+  cursor: pointer;
   background-color: #FF9800;
 }
 
 .button:hover,
 .button:active {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.button_primary {
+  background-color: #1E88E5;
 }
 
 .button_raised {
@@ -266,6 +271,10 @@ code {
 
 /* Inventory */
 .product-inventory__add-item {
+  margin-top: 16px;
+}
+
+.product-inventory__reset {
   margin-top: 16px;
 }
 

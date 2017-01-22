@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Assignment 1</title>
+    <title>Web Technology</title>
     <link rel="stylesheet" href="css/screen.css" media="screen">
     <link rel="stylesheet" href="css/print.css" media="print">
   </head>
   <body>
     <header class="card toc">
-      <h1 class="page-title">Assignment 1</h1>
+      <h1 class="page-title">Web Technology</h1>
       <nav class="navigation">
         <h2 class="card__title toc__title">Table of content</h2>
         <ul class="menu">
@@ -90,6 +90,38 @@
               </li>
             </ul>
           </li>
+          <li class="menu__item">
+            <a href="#lab3">Lab 3</a>
+            <ul class="sub-menu">
+              <li class="sub-menu__item">
+                <a href="#l3q1">Question 1</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q2">Question 2</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q3">Question 3</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q4">Question 4</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q5">Question 5</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q6">Question 6</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q7">Question 7</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q8">Question 8</a>
+              </li>
+              <li class="sub-menu__item">
+                <a href="#l3q9">Question 9</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </header>
@@ -109,27 +141,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Banana</td>
-                <td>fruit</td>
-                <td>1</td>
-                <td>Amsterdam</td>
-                <td>2015-11-21</td>
-              </tr>
-              <tr>
-                <td>Banana</td>
-                <td>fruit</td>
-                <td>2</td>
-                <td>Amsterdam</td>
-                <td>2015-11-21</td>
-              </tr>
-              <tr>
-                <td>Banana</td>
-                <td>fruit</td>
-                <td>3</td>
-                <td>Amsterdam</td>
-                <td>2015-11-21</td>
-              </tr>
               <tr class="product-inventory__new-product-entry">
                 <td>
                   <input type="text" name="name" placeholder="Name" required>
@@ -149,7 +160,8 @@
               </tr>
             </tbody>
           </table>
-          <button class="button button_raised product-inventory__add-item" type="submit" name="button">Add item</button>
+          <button class="button button_primary button_raised product-inventory__add-item" type="submit" name="add_button">Add item</button>
+          <button class="button button_raised product-inventory__reset" type="button" name="reset_button">Reset</button>
         </form>
       </section>
       <article id="lab1" class="card">
@@ -465,6 +477,121 @@
           </li>
         </ol>
       </article>
+      <article id="lab2" class="card">
+        <h2 class="card__title">Lab 3</h2>
+        <ol class="lab-questions">
+          <li id="l3q1" class="lab-question">
+            <h3 class="lab-question__number">Question 1</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>We used Google Chrome browser:</p>
+              <p>To open console in macOS: cmd + alt + c</p>
+              <p>To open console in Windows: ctrl + shift + c</p>
+              <p>To console log:</p>
+              <p><code>console.log('Very interesting console log');</code></p>
+            </div>
+          </li>
+          <li id="l3q2" class="lab-question">
+            <h3 class="lab-question__number">Question 2</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>
+                <code>
+                  <pre>
+var anchors = document.querySelectorAll('a');
+for (var i = 0; i < anchors.length ; i++) {
+  anchors[i].addEventListener('click', function(event) {
+    event.preventDefault();
+    window.location = this.href;
+  }, false);
+}
+                  </pre>
+                </code>
+              </p>
+            </div>
+          </li>
+          <li id="l3q3" class="lab-question">
+            <h3 class="lab-question__number">Question 3</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>
+                <code>
+                  <pre>
+$('a').click(function(event) {
+  event.preventDefault();
+  window.location = $(this).attr('href');
+});
+                  </pre>
+                </code>
+              </p>
+              <p>The main difference is that in Javascript you have to get all the a tags as an array, loop through them and append an event handler to each one, while in Jquery you have the query selector <code>$('e')</code> and you call the submethod <code>.click()</code>, and inside you just write the eventHandler.</p>
+              <p>The downside is that JQuery is a big libary and all of it has to be downloaded even if only a small percentage of the methods is used.</p>
+            </div>
+          </li>
+          <li id="l3q4" class="lab-question">
+            <h3 class="lab-question__number">Question 4</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>Java and Python are compiled languages and JavaScript is not, you can run it as it is.</p>
+            </div>
+          </li>
+          <li id="l3q5" class="lab-question">
+            <h3 class="lab-question__number">Question 5</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>AJAX stands for <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>a</strong>nd <strong>X</strong>ML. Where asynchronous means that the next line does not have to wait for the async line to finish. It's also call non blocking.</p>
+            </div>
+          </li>
+          <li id="l3q6" class="lab-question">
+            <h3 class="lab-question__number">Question 6</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>Window and document, there's no need for them in Java or Python because the they are complied so you could not acces them.</p>
+            </div>
+          </li>
+          <li id="l3q7" class="lab-question">
+            <h3 class="lab-question__number">Question 7</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>In Javascript there are built-in objects such as Array, String, etc.</p>
+              <p>Array, as it names suggests, it stores an array of elements, it has built in methods for sorting, appending, counting the number of elements, etc.</p>
+              <p>String object stores an array of characters. It also contains methods to count the length, search for a substring, and manipulate the characters: concatenate with other strings, remove sequences of characters from a certain index and more.</p>
+            </div>
+          </li>
+          <li id="l3q8" class="lab-question">
+            <h3 class="lab-question__number">Question 8</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>Events are actions that are fired by a user of an other pice of script. Event listers listen for the events to be fired and call a function each time they do.</p>
+            </div>
+          </li>
+          <li id="l3q9" class="lab-question">
+            <h3 class="lab-question__number">Question 9</h3>
+            <section class="lab-question__question">
+              <h4></h4>
+            </section>
+            <div class="lab-question__answer">
+              <p>Auto complete allows you to suggest the user with words he might possible want to type. By doing so you take away some work for the user and show which keywords the system knows at the same time.</p>
+            </div>
+          </li>
+        </ol>
+      </article>
       <section class="card required-props">
         <h2 class="card__title">Becouse of required HTML tags and CSS properties</h2>
         <dl>
@@ -498,5 +625,6 @@
         </figure>
       </section>
     </main>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>

@@ -1,1 +1,16 @@
+1a.  The tokeniser doesn't have a filter, therefore it counts "non-word" symbols as words: "_i_". It definetly needs a character filter.
 
+1b.  Including some of the stop words like: the, and, to and a makes sense but, the word "alice" needs to be excluded and only included if u search in this book.
+
+1c.  In this case it would mean that the most frequent word 'the' ocures twice as ofthen as the second most ofthen word 'and'. And that the second most ofther word 'and' acures twice as ofthen as the third most ofthen word 'to'. In this case it's <q>following Zipf’s law</q> for the first and seccond most frequent words, but not for the words after it. <strong>Alice in Wonderland does not follows Zipf’s law</strong>.
+
+1d. <q>Heaps’ law applies</q> means that as the length of the document increses the mimber of new words decrese.
+
+2a. Precision describes how good the results, when you search something, are displayed on a screen. The precision is the amount of good results per the total given ones when you search for a query. The recall is the amount of good results that could have displayed.
+
+2b. There are many algorithms you care create with both TF-based and TFIDF-based search, but those are different. If you use TFIDF-based search you receive percentages as a result,
+while if use the TF-based search you only get the words and the amount of times they appeared.
+
+2c. If we search for the word "burn" the precision at k=5 for TF-based search and TFIDF-based search is the same,since both the searches return the two relevant parts of the text at the top of the search result.
+
+2d. You will definitely be able to find more relevant results and the precision will increase as well.
