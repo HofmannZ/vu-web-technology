@@ -1,10 +1,6 @@
-var apiKey = '9ca8e4fc';
-var productInventoryList = document.querySelector('.product-inventory__list');
-var resetButton = document.querySelector('.product-inventory__reset');
-
 function ajaxRequest(method, url, callback) {
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       callback(JSON.parse(this.responseText));
     } else if (this.readyState === 4) {
@@ -19,28 +15,8 @@ function ajaxRequest(method, url, callback) {
   xhttp.send();
 };
 
-function resetProductInventory(apiKey) {
-  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/' + apiKey + '/reset', function(response, error) {
-    if (error) {
-      console.error(error.code, error.message);
-    } else if (response) {
-      // Why is the key with a capital S?
-      console.info(response.Success);
-    }
-  });
-};
-
-function fetchProductInventory(apiKey, callback) {
-  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/' + apiKey, function(response, error) {
-    if (error) {
-      console.error(error.code, error.message);
-    } else if (response) {
-      callback(response);
-    }
-  });
-};
-
-function renderInventoryItem(inventoryItem, productInventoryList) {
+function renderInventoryItem(inventoryItem) {
+  var productInventoryList = document.querySelector('.product-inventory__list');
   var position = productInventoryList.querySelectorAll('tr').length - 1;
   var row = productInventoryList.insertRow(position);
 
@@ -57,16 +33,81 @@ function renderInventoryItem(inventoryItem, productInventoryList) {
   date.innerHTML = inventoryItem.date;
 };
 
-function renderProductInventory(apiKey, productInventoryList) {
-  fetchProductInventory(apiKey, function(productInventory) {
-    for (var i = 0; i < productInventory.length; i++) {
-      renderInventoryItem(productInventory[i], productInventoryList);
-    };
+function renderInventory(productInventory) {
+  for (var i = 0; i < productInventory.length; i++) {
+    renderInventoryItem(productInventory[i]);
+  };
+};
+
+function resetInventory() {
+  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/9ca8e4fc/reset', function (response, error) {
+    if (error) {
+      console.error(error.code, error.message);
+    } else if (response) {
+      // Why is the key with a capital S?
+      console.info(response.Success);
+    }
   });
 };
 
-renderProductInventory(apiKey, productInventoryList);
+function fetchInventory(callback) {
+  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/9ca8e4fc', function (response, error) {
+    if (error) {
+      console.error(error.code, error.message);
+    } else if (response) {
+      callback(response);
+    }
+  });
+};
 
-resetButton.addEventListener('click', function() {
-  resetProductInventory(apiKey);
-});
+function addInventoryItem() {
+  var elements = document.querySelector('.product-inventory__new-product-entry');
+  var data = {};
+  var apiUrl = '';
+
+  console.log('elements: ', elements);
+
+  for (var i = 0; i < elements.elements.length; i++) {
+    // Becouse it's inside an extra td
+    console.log('nodes.elements[i]: ', elements.elements[i]);
+
+    var item = elements.elements[i].firstChild;
+    data[item.name] = item.value;
+  }
+
+  console.log('data: ', data);
+
+  apiUrl = 'http://wt.ops.few.vu.nl/api/9ca8e4fc/' + JSON.stringify(data);
+
+  ajaxRequest('POST', apiUrl, function(response, error) {
+    if (error) {
+      console.error(error.code, error.message);
+    } else if (response) {
+      // Why is the key with a capital S?
+      console.log(response);
+    }
+  });
+};
+
+function initializeInventory() {
+  fetchInventory(function (productInventory) {
+    renderInventory(productInventory);
+  });
+};
+
+window.onload = function () {
+  var apiKey = '9ca8e4fc';
+  var resetButton = document.querySelector('.product-inventory__reset');
+  var productInventoryForm = document.querySelector('#product_inventory');
+
+  initializeInventory();
+
+  resetButton.addEventListener('click', function () {
+    resetInventory();
+  });
+
+  productInventoryForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    addInventoryItem();
+  });
+}
