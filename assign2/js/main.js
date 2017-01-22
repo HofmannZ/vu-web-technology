@@ -25,8 +25,9 @@ function renderInventory(productInventory) {
   var productInventoryList = document.querySelector('.product-inventory__list');
 
   // While there are still products in the list remove them.
-  while (productInventoryList.querySelectorAll('tr').length > 1) {
-    productInventoryList.deleteRow(0);
+  // NOTE: There's a table row for the headings asswell.
+  while (productInventoryList.querySelectorAll('tr').length > 2) {
+    productInventoryList.deleteRow(1);
   };
 
   // For each item in the productInventory render it.
