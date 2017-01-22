@@ -1,6 +1,6 @@
-function ajaxRequest(method, url, callback) {
+function ajaxRequest(method, url, data, callback) {
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
       callback(JSON.parse(this.responseText));
     } else if (this.readyState === 4) {
@@ -12,7 +12,12 @@ function ajaxRequest(method, url, callback) {
     }
   };
   xhttp.open(method, url, true);
-  xhttp.send();
+  if (data) {
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send(data);
+  } else {
+    xhttp.send();
+  }
 };
 
 function renderInventoryItem(inventoryItem) {
@@ -40,7 +45,7 @@ function renderInventory(productInventory) {
 };
 
 function resetInventory() {
-  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/9ca8e4fc/reset', function (response, error) {
+  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/9ca8e4fc/reset', false, function(response, error) {
     if (error) {
       console.error(error.code, error.message);
     } else if (response) {
@@ -51,7 +56,7 @@ function resetInventory() {
 };
 
 function fetchInventory(callback) {
-  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/9ca8e4fc', function (response, error) {
+  ajaxRequest('GET', 'http://wt.ops.few.vu.nl/api/9ca8e4fc', false, function(response, error) {
     if (error) {
       console.error(error.code, error.message);
     } else if (response) {
@@ -61,52 +66,48 @@ function fetchInventory(callback) {
 };
 
 function addInventoryItem() {
-  var elements = document.querySelector('.product-inventory__new-product-entry');
+  var tableRow = document.querySelector('.product-inventory__new-product-entry');
+  var tableCells = tableRow.querySelectorAll('td');
   var data = {};
-  var apiUrl = '';
 
-  console.log('elements: ', elements);
-
-  for (var i = 0; i < elements.elements.length; i++) {
-    // Becouse it's inside an extra td
-    console.log('nodes.elements[i]: ', elements.elements[i]);
-
-    var item = elements.elements[i].firstChild;
-    data[item.name] = item.value;
+  for (var i = 0; i < tableCells.length; i++) {
+    var input = tableCells[i].querySelector('input');
+    data[input.name] = input.value;
   }
 
-  console.log('data: ', data);
-
-  apiUrl = 'http://wt.ops.few.vu.nl/api/9ca8e4fc/' + JSON.stringify(data);
-
-  ajaxRequest('POST', apiUrl, function(response, error) {
-    if (error) {
-      console.error(error.code, error.message);
-    } else if (response) {
-      // Why is the key with a capital S?
-      console.log(response);
+  ajaxRequest(
+    'POST',
+    'http://wt.ops.few.vu.nl/api/9ca8e4fc',
+    JSON.stringify(data),
+    function(response, error) {
+      if (error) {
+        console.error(error.code, error.message);
+      } else if (response) {
+        // Why is the key with a capital S?
+        console.log(response);
+      }
     }
-  });
+  );
 };
 
 function initializeInventory() {
-  fetchInventory(function (productInventory) {
+  fetchInventory(function(productInventory) {
     renderInventory(productInventory);
   });
 };
 
-window.onload = function () {
+window.onload = function() {
   var apiKey = '9ca8e4fc';
   var resetButton = document.querySelector('.product-inventory__reset');
   var productInventoryForm = document.querySelector('#product_inventory');
 
   initializeInventory();
 
-  resetButton.addEventListener('click', function () {
+  resetButton.addEventListener('click', function() {
     resetInventory();
   });
 
-  productInventoryForm.addEventListener('submit', function (event) {
+  productInventoryForm.addEventListener('submit', function(event) {
     event.preventDefault();
     addInventoryItem();
   });
