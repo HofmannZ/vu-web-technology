@@ -64,7 +64,7 @@ class WtDbPlugin(object):
         Creates table 'inventory' if not present
         '''
         c = db.cursor()
-        
+
         # Create table and insert one dummy item if table doesn't exist
         c.execute("SELECT name FROM sqlite_master WHERE type='table' and name='inventory'")
         result = c.fetchone()
@@ -74,12 +74,9 @@ class WtDbPlugin(object):
                     (id INTEGER PRIMARY KEY,
                     name char(100) NOT NULL,
                     category char(100) NOT NULL,
+                    amount INTEGER NOT NULL,
                     location char(100),
-                    date char(12),
-                    amount INTEGER NOT NULL);
-            INSERT INTO inventory
-                    (name, category, location, date, amount)
-                    VALUES ('Banana', 'Fruit', 'Amsterdam', '2014-10-05', '15')
+                    date char(12));
             """);
             db.commit()
 
@@ -210,4 +207,3 @@ class WtCorsPlugin(object):
 
         # Return OPTIONS route
         return preflight_route
-

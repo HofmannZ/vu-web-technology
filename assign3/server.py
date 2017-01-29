@@ -32,26 +32,18 @@ def hello_world():
     '''
     response_body = {'Hello': 'World'}
 
-    # This returns valid JSON in the response, but does not yet set the 
-    # associated HTTP response header.  This you should do yourself in your 
-    # own routes! 
+    # This returns valid JSON in the response, but does not yet set the
+    # associated HTTP response header.  This you should do yourself in your
+    # own routes!
     return json.dumps(response_body)
 
-@get('/db-example')
+@get('/api')
 def db_example(db):
-    '''Responds with names of all products in Amsterdam
-    
-    Add a parameter 'db' to your function to get a database cursor from
-    WtPlugin. The parameter db is of type sqlite3.Cursor. Documentation is
-    at https://docs.python.org/2/library/sqlite3.html#sqlite3.Cursor
-
-    If you want to start with a clean sheet, delete the file 'inventory.db'.
-    It will be automatically re-created and filled with one example item.
-
-    Access this route at http://localhost:8080/db-example
+    '''Responds with all the products
+    Access this route at http://localhost:8080/api
     '''
     # Execute SQL statement to select the name of all items located in A'dam
-    db.execute("SELECT name FROM inventory WHERE location=?", ('Amsterdam',))
+    db.execute("SELECT * FROM inventory ");
 
     # Get all results in a list of dictionaries
     names = db.fetchall() # Use db.fetchone() to get results one by one
@@ -103,4 +95,3 @@ if __name__ == "__main__":
     install(WtDbPlugin())
     install(WtCorsPlugin())
     run(host='localhost', port=8080, reloader=True, debug=True, autojson=False)
-
