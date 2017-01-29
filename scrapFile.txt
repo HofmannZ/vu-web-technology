@@ -1,16 +1,33 @@
-1a.  The tokeniser doesn't have a filter, therefore it counts "non-word" symbols as words: "_i_". It definetly needs a character filter.
+Lab 5
 
-1b.  Including some of the stop words like: the, and, to and a makes sense but, the word "alice" needs to be excluded and only included if u search in this book.
+1.1.  Means that the request is stateless, if the request is the same the response is garanteed to be the same as well.
 
-1c.  In this case it would mean that the most frequent word 'the' ocures twice as ofthen as the second most ofthen word 'and'. And that the second most ofther word 'and' acures twice as ofthen as the third most ofthen word 'to'. In this case it's <q>following Zipf’s law</q> for the first and seccond most frequent words, but not for the words after it. <strong>Alice in Wonderland does not follows Zipf’s law</strong>.
+1.2.  You would only have to look a the timestamp to know if the data has changed. Else you can serve it right from the proxy.
 
-1d. <q>Heaps’ law applies</q> means that as the length of the document increses the mimber of new words decrese.
+1.3.  If an GET method is called you want to increment your amount of visitors. Therefore it's not RESTful.
 
-2a. Precision describes how good the results, when you search something, are displayed on a screen. The precision is the amount of good results per the total given ones when you search for a query. The recall is the amount of good results that could have displayed.
+1.4.  If the visitor counter, relies on the HTTP request reaching the server and updating a database, the proxy can't update the counter since it does not have access to the database.
 
-2b. There are many algorithms you care create with both TF-based and TFIDF-based search, but those are different. If you use TFIDF-based search you receive percentages as a result,
-while if use the TF-based search you only get the words and the amount of times they appeared.
+2.    Because HTTP is stateless you can easly cache files because the response is garanteed to be the same if the request is.
 
-2c. If we search for the word "burn" the precision at k=5 for TF-based search and TFIDF-based search is the same,since both the searches return the two relevant parts of the text at the top of the search result.
+3.    Cookies are used to keep certain data from the user accesible even if it sets up a new HTTP connection. This way you can store the IDs of the items in a user's cart and preserve them trough diferent sessions.
 
-2d. You will definitely be able to find more relevant results and the precision will increase as well.
+4.    The 303 error code means 'See Other' the requested page can be found under a different URL. the find this I used the W3C http://www.w3schools.com/tags/ref_httpmessages.asp.
+
+5.    Table:
+Spotify:  https://api.spotify.com/v1/albums/{id}                    GET   JSON
+Twitter:  https://api.twitter.com/1.1/statuses/user_timeline.json   GET   JSON
+
+6.    Allowed methods are: POST, OPTIONS, PUT, DELETE
+      And you're allowed to acces it from anywhere.
+
+7.    I would expect it to be JSON, and it actualy is JSON!
+
+8.    You can see server has started, in the console. If you introduce a it will not compile and trow an error.
+
+9.    Serving data in JSON format adds felxability to the developer, where you can choose how to to display the data yourself. Returning the data in HTML format removes the need to parse the javascript with imporves the parsing time, increses the time to terice the data.
+
+
+Lab 6
+
+1.    
