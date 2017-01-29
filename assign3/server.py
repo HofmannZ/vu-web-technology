@@ -15,7 +15,7 @@
 
 # Include more methods/decorators as you use them
 # See http://bottle.readthedocs.org/en/stable/api.html#bottle.Bottle.route
-from bottle import response, error, get
+from bottle import response, request, error, get, put, post, delete
 import json
 
 
@@ -26,32 +26,131 @@ import json
 #       everything works.
 ###############################################################################
 
-@get('/hello')
-def hello_world():
-    '''Responds to http://localhost:8080/hello with an example JSON object
-    '''
-    response_body = {'Hello': 'World'}
 
-    # This returns valid JSON in the response, but does not yet set the
-    # associated HTTP response header.  This you should do yourself in your
-    # own routes!
-    return json.dumps(response_body)
-
-@get('/api')
+@get('/products')
 def db_example(db):
     '''Responds with all the products
-    Access this route at http://localhost:8080/api
+    Access this route at http://localhost:8080/products
     '''
-    # Execute SQL statement to select the name of all items located in A'dam
-    db.execute("SELECT * FROM inventory ");
-
+    response.headers['Content-Type'] = 'application/json'
+    # Execute SQL statement to select all the products from the database
+    db.execute("SELECT * FROM inventory ")
     # Get all results in a list of dictionaries
-    names = db.fetchall() # Use db.fetchone() to get results one by one
+    products = db.fetchall() # Use db.fetchone() to get results one by one
+    if (products == []):
+        # Set the 404 status code if the database is empty
+        response.status = 404
+        response_body = { "status": "Not Found", "message": "No product has been found",}
+        response.body = json.dumps(response_body)
+    else:
+        # Set the 200 status code if 1 or more products is found inside the database
+        response.status = 200
+        response.body = json.dumps(names)
 
-    # TODO: set the appropriate HTTP headers and HTTP response codes.
+    return response
 
-    # Return results as JSON
-    return json.dumps(names)
+@get('/products/<id>')
+def db_example(db, id):
+    '''Responds with the requested product if exists
+    Access this route at http://localhost:8080/products/<id>
+    '''
+    response.headers['Content-Type'] = 'application/json'
+    # Execute SQL statement to select the desired product
+    # Get the product or emplty array if not existent
+    db.execute("SELECT * from inventory where id={}".format(id))
+    product = db.fetchall() # Use db.fetchone() to get the result
+    if (product == []):
+        # Set the 404 status code if the product is not found
+        response.status = 404
+        response_body = { "status": "Not Found", "message": "Product with the provided id is not existent",}
+    else:
+        # Set the 302 status code if the product is found
+        response.status = 302
+        response_body = product
+    response.body = json.dumps(response_body)
+
+    return response
+
+@put('/products/<id>')
+def db_example(db, id):
+    '''Responds with the requested product if exists
+    Access this route at http://localhost:8080/products/<id>
+    '''
+    # Execute SQL statement to select the desired product
+    # Get the product or emplty array if not existent
+    db.execute("SELECT id from inventory WHERE id={}".format(id))
+    data = db.fetchall()
+    if (data == []):
+        # Set the 404 status code if the product is not found
+        response.status = 404
+        response_body = { "status": "Not Found", "message": "Product with the provided id is not existent",}
+        response.body= json.dumps(response_body)
+    else:
+        # Deconstruct each field from the Request JSON
+        requestedData = request.json
+        name = request.json.get('name')
+        category = request.json.get('category')
+        amount = request.json.get('amount')
+        location = request.json.get('location')
+        date = request.json.get('date')
+        # Create the SQL query using the data from the request
+        db.execute('UPDATE inventory SET name = "{}", category = "{}", amount = "{}", location = "{}", date = "{}" WHERE id={}'.format(name, category, amount, location, date, id))
+        # Set the 200 code when the SQL query is executed
+        response.status = 200
+        response.headers['Content-Type'] = 'application/json'
+        response.body= json.dumps(requestedData)
+
+    return response
+
+@delete('/products/<id>')
+def db_example(db, id):
+    '''Responds with the 204 status code if the product is deleted
+    Access this route at http://localhost:8080/products/<id>
+    '''
+    response.headers['Content-Type'] = 'application/json'
+    # Execute SQL statement to select the desired product
+    db.execute("SELECT id from inventory WHERE id={}".format(id))
+    data = db.fetchall()
+    if (data == []):
+        # Set the 404 status code if the product is not found
+        response.status = 404
+        response_body = { "status": "Not Found", "message": "Product with the provided id is not existent",}
+        response.body = json.dumps(response_body)
+    else:
+        db.execute("DELETE from inventory WHERE id={}".format(id))
+        # Set the 204 code when the SQL query is executed
+        response.status = 204
+        response.body = ''
+
+    return response
+
+@post('/products')
+def db_example(db):
+    '''Add a new product in the database
+    Access this route at http://localhost:8080/products
+    '''
+    # Deconstruct each field from the Request JSON
+    requestedData = request.json
+    name = request.json.get('name')
+    category = request.json.get('category')
+    amount = request.json.get('amount')
+    location = request.json.get('location')
+    date = request.json.get('date')
+    # Create the SQL query using the data from the request
+    db.execute('INSERT INTO inventory (name,category,amount,location,date) VALUES (?,?,?,?,?)',(name,category,amount,location,date))
+    # Gets the new product id by getting the last row's id
+    id = db.lastrowid
+    # Save the host ip and password
+    host = request.get_header('host')
+    # Concatentes the string for the newly added product
+    response_body = {'url': 'http://{}/products/{}'.format(host,id)}
+    # Set the 201 status code after the product is added
+    response.status = 201
+    response.headers['Content-Type'] = 'application/json'
+    response.body = json.dumps(response_body)
+
+    return response
+
 
 
 
