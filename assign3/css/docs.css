@@ -1,0 +1,71 @@
+.api-doc {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 14px/20px;
+}
+
+.api-doc thead {
+  box-sizing: border-box;
+}
+
+.api-doc thead tr {
+  background-color: #757575;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.api-doc th {
+  color: #fff;
+  height: 48px;
+  padding: 8px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.api-doc tbody {
+  box-sizing: border-box;
+}
+
+.api-doc tbody tr {
+  background-color: #757575;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.api-doc td {
+  background-color: rgba(255, 255, 255, .95);
+  vertical-align: top;
+  color: #212121;
+  padding: 7px 8px 8px;
+  border: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.api-doc tr.api-doc__endpoint td {
+  background-color: rgba(255, 255, 255, .75);
+}
+
+.api-doc code {
+  color: black;
+}
+
+.api-doc code .api-doc__request-param {
+  color: #FF9800;
+}
+
+.response__name {
+  color: #757575;
+  border-bottom: 1px solid #757575;
+  padding-bottom: 3px;
+  letter-spacing: -.01em
+}
+
+.response__name .response__request-param {
+  color: #FF9800;
+}
+
+.response__data code {
+  color: #1E88E5;
+}

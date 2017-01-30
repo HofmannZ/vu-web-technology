@@ -20,155 +20,170 @@ import json
 
 
 ###############################################################################
+#
 # Routes
 #
-# TODO: Add your routes here and remove the example routes once you know how
-#       everything works.
 ###############################################################################
 
-
+# Gets all the products in the inventory.
 @get('/products')
 def db_example(db):
-    '''Responds with all the products
-    Access this route at http://localhost:8080/products
-    '''
-    response.headers['Content-Type'] = 'application/json'
-    # Execute SQL statement to select all the products from the database
-    db.execute("SELECT * FROM inventory ")
-    # Get all results in a list of dictionaries
-    products = db.fetchall() # Use db.fetchone() to get results one by one
+
+    # Get all products from the database or empty array if none exist.
+    db.execute('SELECT * FROM inventory')
+
+    # Get all results in a list of dictionaries.
+    products = db.fetchall()
+
     if (products == []):
-        # Set the 404 status code if the database is empty
+        # If the product is not found respond to client with an error.
         response.status = 404
-        response_body = { "status": "Not Found", "message": "No product has been found",}
-        response.body = json.dumps(response_body)
+        response.headers['Content-Type'] = 'application/json'
+        response_body = {'status': 'Not Found', 'message': 'No products have been found in our database.'}
     else:
-        # Set the 200 status code if 1 or more products is found inside the database
-        response.status = 200
-        response.body = json.dumps(names)
-
-    return response
-
-@get('/products/<id>')
-def db_example(db, id):
-    '''Responds with the requested product if exists
-    Access this route at http://localhost:8080/products/<id>
-    '''
-    response.headers['Content-Type'] = 'application/json'
-    # Execute SQL statement to select the desired product
-    # Get the product or emplty array if not existent
-    db.execute("SELECT * from inventory where id={}".format(id))
-    product = db.fetchall() # Use db.fetchone() to get the result
-    if (product == []):
-        # Set the 404 status code if the product is not found
-        response.status = 404
-        response_body = { "status": "Not Found", "message": "Product with the provided id is not existent",}
-    else:
-        # Set the 302 status code if the product is found
-        response.status = 302
-        response_body = product
-    response.body = json.dumps(response_body)
-
-    return response
-
-@put('/products/<id>')
-def db_example(db, id):
-    '''Responds with the requested product if exists
-    Access this route at http://localhost:8080/products/<id>
-    '''
-    # Execute SQL statement to select the desired product
-    # Get the product or emplty array if not existent
-    db.execute("SELECT id from inventory WHERE id={}".format(id))
-    data = db.fetchall()
-    if (data == []):
-        # Set the 404 status code if the product is not found
-        response.status = 404
-        response_body = { "status": "Not Found", "message": "Product with the provided id is not existent",}
-        response.body= json.dumps(response_body)
-    else:
-        # Deconstruct each field from the Request JSON
-        requestedData = request.json
-        name = request.json.get('name')
-        category = request.json.get('category')
-        amount = request.json.get('amount')
-        location = request.json.get('location')
-        date = request.json.get('date')
-        # Create the SQL query using the data from the request
-        db.execute('UPDATE inventory SET name = "{}", category = "{}", amount = "{}", location = "{}", date = "{}" WHERE id={}'.format(name, category, amount, location, date, id))
-        # Set the 200 code when the SQL query is executed
+        # Set the 200 status code if 1 or more products is found inside the database.
         response.status = 200
         response.headers['Content-Type'] = 'application/json'
-        response.body= json.dumps(requestedData)
+        response_body = products
 
+    response.body = json.dumps(response_body)
     return response
 
-@delete('/products/<id>')
+# Gets a specific product in the inventory.
+@get('/products/<id>')
 def db_example(db, id):
-    '''Responds with the 204 status code if the product is deleted
-    Access this route at http://localhost:8080/products/<id>
-    '''
-    response.headers['Content-Type'] = 'application/json'
-    # Execute SQL statement to select the desired product
-    db.execute("SELECT id from inventory WHERE id={}".format(id))
-    data = db.fetchall()
-    if (data == []):
-        # Set the 404 status code if the product is not found
-        response.status = 404
-        response_body = { "status": "Not Found", "message": "Product with the provided id is not existent",}
-        response.body = json.dumps(response_body)
-    else:
-        db.execute("DELETE from inventory WHERE id={}".format(id))
-        # Set the 204 code when the SQL query is executed
-        response.status = 204
-        response.body = ''
 
+    # Get the product from the database or an empty array if is does not exist.
+    db.execute('SELECT * from inventory where id={}'.format(id))
+    product = db.fetchall()
+
+    if (product == []):
+        # If the product is not found respond to client with an error.
+        response.status = 404
+        response.headers['Content-Type'] = 'application/json'
+        response_body = {'status': 'Not Found', 'message': 'The product you are looking for could not be found.'}
+    else:
+        # Set the 200 status code if the product is found.
+        response.status = 200
+        response.headers['Content-Type'] = 'application/json'
+        response_body = product[0]
+
+    response.body = json.dumps(response_body)
     return response
 
+# Adds a new product to the inventory.
 @post('/products')
 def db_example(db):
-    '''Add a new product in the database
-    Access this route at http://localhost:8080/products
-    '''
-    # Deconstruct each field from the Request JSON
-    requestedData = request.json
+
+    # Get the data fields form the request.
     name = request.json.get('name')
     category = request.json.get('category')
     amount = request.json.get('amount')
     location = request.json.get('location')
     date = request.json.get('date')
-    # Create the SQL query using the data from the request
-    db.execute('INSERT INTO inventory (name,category,amount,location,date) VALUES (?,?,?,?,?)',(name,category,amount,location,date))
-    # Gets the new product id by getting the last row's id
-    id = db.lastrowid
-    # Save the host ip and password
-    host = request.get_header('host')
-    # Concatentes the string for the newly added product
-    response_body = {'url': 'http://{}/products/{}'.format(host,id)}
-    # Set the 201 status code after the product is added
-    response.status = 201
-    response.headers['Content-Type'] = 'application/json'
+
+    if (not name or not category or not amount or not location or not date):
+        # If some parameters to are missing respont with an error to the client.
+        response.status = 400
+        response.headers['Content-Type'] = 'application/json'
+        response_body = {'status': 'Bad Request', 'message': 'One or more parameters in your request are missing.'}
+    else:
+        # Insert the product into the database.
+        db.execute('INSERT INTO inventory (name, category, amount, location, date) VALUES (?, ?, ?, ?, ?)', (name, category, amount, location, date))
+
+        # Gets the new product id by getting the last row's id.
+        id = db.lastrowid
+
+        # Save the host ip of the host.
+        host = request.get_header('host')
+
+        # Set the 201 status code to let the user know that the product has been succefully added to the database.
+        response.status = 201
+        response.headers['Content-Type'] = 'application/json'
+
+        # Creates the URL for the newly added product.
+        response_body = {'url': 'http://{}/products/{}'.format(host,id)}
+
     response.body = json.dumps(response_body)
+    return response
+
+# Changes an existing product in the inventory.
+@put('/products/<id>')
+def db_example(db, id):
+
+    # Get the data fields form the request.
+    name = request.json.get('name')
+    category = request.json.get('category')
+    amount = request.json.get('amount')
+    location = request.json.get('location')
+    date = request.json.get('date')
+
+    if (not name or not category or not amount or not location or not date):
+        # If some parameters to are missing respont with an error to the client.
+        response.status = 400
+        response.headers['Content-Type'] = 'application/json'
+        response_body = {'status': 'Bad Request', 'message': 'One or more parameters in your request are missing.'}
+    else:
+        # Get the product from the database or empty array if is does not exist.
+        db.execute("SELECT id from inventory WHERE id={}".format(id))
+        product = db.fetchall()
+
+        if (product == []):
+            # If the product is not found respond to client with an error.
+            response.status = 404
+            response.headers['Content-Type'] = 'application/json'
+            response_body = {'status': 'Not Found', 'message': 'The product you are looking for could not be found.'}
+        else:
+            # Update the data in the database.
+            db.execute('UPDATE inventory SET name = "{}", category = "{}", amount = "{}", location = "{}", date = "{}" WHERE id={}'.format(name, category, amount, location, date, id))
+
+            # Respond to the client with the newly added product.
+            response.status = 200
+            response.headers['Content-Type'] = 'application/json'
+            response_body = request.json
+
+    response.body = json.dumps(response_body)
+    return response
+
+# Deletes a product form the inventory.
+@delete('/products/<id>')
+def db_example(db, id):
+
+    # Get the product from the database or empty array if is does not exist.
+    db.execute("SELECT id from inventory WHERE id={}".format(id))
+    product = db.fetchall()
+
+    if (product == []):
+        # If the product is not found respond to client with an error.
+        response.status = 404
+        response.headers['Content-Type'] = 'application/json'
+        response_body = {'status': 'Not Found', 'message': 'The product you are looking for could not be found.'}
+        response.body = json.dumps(response_body)
+    else:
+        db.execute('DELETE from inventory WHERE id={}'.format(id))
+
+        # Respond with a 204 message to notify the clinet that the product is succesfully deleted.
+        response.status = 204
+        response.headers['Content-Type'] = 'application/json'
+        response.body = ''
 
     return response
 
 
-
-
-
 ###############################################################################
+#
 # Error handling
 #
-# TODO: Add sensible error handlers for all errors that may occur when a user
-#       accesses your API.
 ###############################################################################
 
 @error(404)
 def error_404_handler(e):
 
-    # Content type must be set manually in error handlers
-    response.content_type = 'application/json'
+    # Content type must be set manually in error handlers.
+    response.headers['Content-Type'] = 'application/json'
 
     return json.dumps({'Error': {'Message': e.status_line, 'Status': e.status_code}})
+
 
 ###############################################################################
 # This starts the server
