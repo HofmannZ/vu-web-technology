@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Documentation</title>
+  <link rel="stylesheet" href="css/screen.css" media="screen">
+  <link rel="stylesheet" href="css/docs.css" media="screen">
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h2 class="card__title">API Reference</h2>
+      <div class="table-wrapper">
+        <table class="api-doc">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>HTTP request</th>
+              <th>Description</th>
+              <th>Posted data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="api-doc__endpoint">
+              <td>URIs relative to http://localhost:8080/, unless otherwise noted</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>/products</code></td>
+              <td>Gets all the products in the inventory.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td><code>/products/<span class="api-doc__request-param">productId</span></code></td>
+              <td>Gets a specific product in the inventory.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>POST</td>
+              <td><code>/products</code></td>
+              <td>Adds a new product to the inventory.</td>
+              <td>category, date, amount, name, location</td>
+            </tr>
+            <tr>
+              <td>PUT</td>
+              <td><code>/products/<span class="api-doc__request-param">productId</span></code></td>
+              <td>Changes an existing product in the inventory.</td>
+              <td>category, date, amount, name, location</td>
+            </tr>
+            <tr>
+              <td>DELETE</td>
+              <td><code>/products/<span class="api-doc__request-param">productId</span></code></td>
+              <td>Deletes a product form the inventory.</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <section class="response">
+        <h3 class="response__name">GET /products</h3>
+        <p>Returns a 200 when the items are found.</p>
+        <section class="response__data">
+          <pre>
+            <code>
+[
+  {
+    "category": "Fruit",
+    "name": "Eus",
+    "amount": 15,
+    "location": "Amsterdam",
+    "date": "15.05.1990",
+    "id": 1
+  },
+  {
+    "category": "Fruit",
+    "name": "Zino",
+    "amount": 15,
+    "location": "Amsterdam",
+    "date": "15.05.1990",
+    "id": 2
+  },
+]
+            </code>
+          </pre>
+        </section>
+      </section>
+      <section class="response">
+        <h3 class="response__name">GET /products/<span class="response__request-param">productId</span></h3>
+        <p>Returns a 200 when the item is found.</p>
+        <section class="response__data">
+          <pre>
+            <code>
+{
+  "category": "Fruit",
+  "name": "Eus",
+  "amount": 15,
+  "location": "Amsterdam",
+  "date": "15.05.1990",
+  "id": 2
+}
+            </code>
+          </pre>
+        </section>
+      </section>
+      <section class="response">
+        <h3 class="response__name">POST /products</h3>
+        <p>Returns a 201 when the item is succesfully added.</p>
+        <section class="response__data">
+          <pre>
+            <code>
+{
+  "url": "http://localhost:8080/products/4"
+}
+            </code>
+          </pre>
+        </section>
+      </section>
+      <section class="response">
+        <h3 class="response__name">PUT /products/<span class="response__request-param">productId</span></h3>
+        <p>Returns a 200 when the item is succesfully changed.</p>
+        <section class="response__data">
+          <pre>
+            <code>
+{
+  "category": "Fruit",
+  "date": "15.05.1990",
+  "amount": "15",
+  "name": "Zino",
+  "location": "Amsterdam"
+}
+            </code>
+          </pre>
+        </section>
+      </section>
+      <section class="response">
+        <h3 class="response__name">DELETE /products/<span class="response__request-param">productId</span></h3>
+        <section class="response__data">
+          <p>Returns a 204 when the item is succesfully deleted.</p>
+        </section>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
