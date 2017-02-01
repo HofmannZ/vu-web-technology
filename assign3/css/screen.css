@@ -23,13 +23,13 @@ table {
   caption-side: bottom;
 }
 
-tr {
+.page-content tr {
   display: flex;
   flex-wrap: wrap;
 }
 
-th,
-td {
+.page-content th,
+.page-content td {
   flex: 1;
 }
 
